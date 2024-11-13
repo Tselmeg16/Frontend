@@ -1,11 +1,31 @@
-import Image from "next/image";
-import localFont from "next/font/local"
+import React, { useState } from "react";
 
-export default function Home() {
+const useStateTask = () => {
+  const [color, setColor] = useState("");
+
   return (
-    <div className="text-2xl">
-      <Image src="/hey.jpg" width={200} height={200} className="rounded-full justify-self-center" />
-      <h1 className="text-green-500">Name: Tselmeg</h1>
+    <div className={`flex space-x-4 w-full h-screen ${color ? `bg-${color}-800` : ""}`}>
+      <p>Өнгө солих:</p>
+      <button
+        className="border bg-red-800 py-4 px-0"
+        onClick={() => setColor("red")}
+      >
+        Улаан
+      </button>
+      <button
+        className="border bg-blue-800 py-4 px-0"
+        onClick={() => setColor("blue")}
+      >
+        Цэнхэр
+      </button>
+      <button
+        className="border bg-green-800 py-4 px-0"
+        onClick={() => setColor("green")}
+      >
+        Ногоон
+      </button>
     </div>
   );
-}
+};
+
+export default useStateTask;
